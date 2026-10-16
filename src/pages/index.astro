@@ -1,5 +1,7 @@
 ---
-const enUrl = `${import.meta.env.BASE_URL}en/`;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith("/") ? rawBase : `${rawBase}/`;
+const enUrl = `${base}en/`;
 ---
 
 <!doctype html>
