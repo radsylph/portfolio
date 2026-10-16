@@ -1,0 +1,44 @@
+---
+import Section from './Section.astro';
+import { useTranslations } from '../i18n/utils';
+import type { Basics } from '../types/cv';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+	basics: Basics;
+}
+
+const { basics } = Astro.props;
+const locale = (Astro.currentLocale as Locale) ?? 'en';
+const t = useTranslations(locale);
+const github = basics.profiles.find((p) => p.network.toLowerCase() === 'github');
+---
+
+<Section id="contact" title={t('section.contact')}>
+	<div class="glass glass-accent rounded-2xl p-8 text-center md:p-12">
+		<h3 class="font-heading text-2xl font-bold text-text md:text-3xl dark:text-text-dark">
+			{t('contact.heading')}
+		</h3>
+		<p class="mt-3 text-text-muted dark:text-text-muted-dark">{t('contact.body')}</p>
+		<a
+			href={`mailto:${basics.email}`}
+			class="mt-6 inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 font-medium text-bg-dark transition-transform hover:-translate-y-0.5 hover:bg-accent-dark focus-visible:ring-2 focus-visible:ring-accent"
+		>
+			{basics.email}
+		</a>
+		{
+			github && (
+				<div class="mt-6">
+					<a
+						href={`https://github.com/${github.username}`}
+						class="text-accent hover:underline dark:text-accent-dark"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						github.com/{github.username}
+					</a>
+				</div>
+			)
+		}
+	</div>
+</Section>

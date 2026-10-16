@@ -1,0 +1,17 @@
+---
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+	name: string;
+}
+
+const { name } = Astro.props;
+const locale = (Astro.currentLocale as Locale) ?? 'en';
+const t = useTranslations(locale);
+const year = new Date().getFullYear();
+---
+
+<footer class="px-6 py-8 text-center text-sm text-text-muted dark:text-text-muted-dark">
+	<p>© {year} {name}. {t('footer.copyright')}</p>
+</footer>

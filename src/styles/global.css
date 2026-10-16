@@ -1,0 +1,137 @@
+@import "tailwindcss";
+@import "@fontsource-variable/sora";
+@import "@fontsource-variable/inter";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--font-sans: "Inter Variable", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		sans-serif;
+	--font-heading: "Sora Variable", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		sans-serif;
+
+	--color-bg: #f6f7f9;
+	--color-bg-dark: #0b1020;
+	--color-text: #0b1220;
+	--color-text-dark: #e6edf3;
+	--color-text-muted: #55606e;
+	--color-text-muted-dark: #8b949e;
+	--color-accent: #22d3ee;
+	--color-accent-dark: #67e8f9;
+	--color-surface: rgba(255, 255, 255, 0.55);
+	--color-surface-dark: rgba(17, 24, 39, 0.55);
+	--color-border: rgba(255, 255, 255, 0.4);
+	--color-border-dark: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		color-scheme: light;
+	}
+
+	html.dark {
+		color-scheme: dark;
+	}
+
+	body {
+		font-family: var(--font-sans);
+		background-color: var(--color-bg);
+		color: var(--color-text);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	html.dark body {
+		background-color: var(--color-bg-dark);
+		color: var(--color-text-dark);
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--font-heading);
+		text-wrap: balance;
+	}
+}
+
+@layer base {
+	a,
+	button {
+		touch-action: manipulation;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	a:focus-visible,
+	button:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 2px;
+	}
+}
+
+@layer components {
+	.glass {
+		background: var(--color-surface);
+		-webkit-backdrop-filter: blur(14px) saturate(150%);
+		backdrop-filter: blur(14px) saturate(150%);
+		border: 1px solid var(--color-border);
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+	}
+
+	html.dark .glass {
+		background: var(--color-surface-dark);
+		border-color: var(--color-border-dark);
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+	}
+
+	.glass-accent {
+		position: relative;
+		overflow: hidden;
+	}
+
+	/*.glass-accent::before {
+		content: "";
+		position: absolute;
+		top: -50%;
+		right: -50%;
+		width: 100%;
+		height: 100%;
+		background: radial-gradient(
+			circle,
+			color-mix(in srgb, var(--color-accent) 18%, transparent) 0%,
+			transparent 70%
+		);
+		pointer-events: none;
+	}*/
+
+	html.dark .glass-accent::before {
+		background: radial-gradient(
+			circle,
+			color-mix(in srgb, var(--color-accent-dark) 14%, transparent) 0%,
+			transparent 70%
+		);
+	}
+
+	.focus-ring {
+		outline: none;
+	}
+
+	.focus-ring:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 2px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

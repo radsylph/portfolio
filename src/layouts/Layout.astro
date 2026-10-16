@@ -1,0 +1,52 @@
+---
+import "../styles/global.css";
+
+interface Props {
+    locale: string;
+    title: string;
+    description?: string;
+}
+
+const { locale, title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang={locale} class="scroll-smooth">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {description && <meta name="description" content={description} />}
+        <meta name="theme-color" content="#f6f7f9" id="theme-color" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <script is:inline>
+            (function () {
+                const stored =
+                    typeof localStorage !== "undefined"
+                        ? localStorage.getItem("theme")
+                        : null;
+                const systemDark =
+                    typeof window !== "undefined" &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches;
+                const isDark = stored ? stored === "dark" : systemDark;
+                if (isDark) document.documentElement.classList.add("dark");
+                const meta = document.getElementById("theme-color");
+                if (meta)
+                    meta.setAttribute(
+                        "content",
+                        isDark ? "#0b1020" : "#f6f7f9",
+                    );
+            })();
+        </script>
+    </head>
+    <body class="min-h-screen antialiased">
+        <a
+            href="#main"
+            class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-4 focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-bg-dark"
+        >
+            Skip to content
+        </a>
+        <slot />
+    </body>
+</html>

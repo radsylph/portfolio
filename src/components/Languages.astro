@@ -1,0 +1,39 @@
+---
+import Section from './Section.astro';
+import { useTranslations } from '../i18n/utils';
+import type { Language } from '../types/cv';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+	languages: Language[];
+}
+
+const { languages } = Astro.props;
+const locale = (Astro.currentLocale as Locale) ?? 'en';
+const t = useTranslations(locale);
+---
+
+<Section id="languages" title={t('section.languages')}>
+	<div class="grid gap-4 sm:grid-cols-2">
+		{
+			languages.map((lang) => (
+				<article class="glass glass-accent flex items-start justify-between gap-4 rounded-xl p-5">
+					<div>
+						<h3 class="font-heading font-semibold text-text dark:text-text-dark">{lang.language}</h3>
+						<p class="text-text-muted dark:text-text-muted-dark">{lang.fluency}</p>
+					</div>
+					{lang.summary && (
+						<a
+							href={lang.summary}
+							class="text-sm text-accent hover:underline dark:text-accent-dark"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							{t('languages.certificate')}
+						</a>
+					)}
+				</article>
+			))
+		}
+	</div>
+</Section>

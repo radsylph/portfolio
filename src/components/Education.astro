@@ -1,0 +1,43 @@
+---
+import Section from './Section.astro';
+import { useTranslations, formatDateRange } from '../i18n/utils';
+import type { Education } from '../types/cv';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+	education: Education[];
+}
+
+const { education } = Astro.props;
+const locale = (Astro.currentLocale as Locale) ?? 'en';
+const t = useTranslations(locale);
+---
+
+<Section id="education" title={t('section.education')}>
+	<div class="space-y-6">
+		{
+			education.map((item) => (
+				<article class="glass glass-accent rounded-xl p-5">
+					<div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+						<h3 class="font-heading text-lg font-semibold text-text dark:text-text-dark">
+							{item.institution}
+						</h3>
+						{item.startDate && (
+							<time class="tabular-nums text-sm text-text-muted dark:text-text-muted-dark">
+								{formatDateRange(item.startDate, item.endDate, locale, t('experience.present'))}
+							</time>
+						)}
+					</div>
+					<p class="text-text-muted dark:text-text-muted-dark">
+						{item.studyType} · {item.area}
+					</p>
+					{item.score && (
+						<p class="mt-2 text-sm text-text-muted dark:text-text-muted-dark">
+							{t('education.score')}: {item.score}
+						</p>
+					)}
+				</article>
+			))
+		}
+	</div>
+</Section>

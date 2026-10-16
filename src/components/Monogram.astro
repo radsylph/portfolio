@@ -1,0 +1,21 @@
+---
+interface Props {
+	name: string;
+}
+
+const { name } = Astro.props;
+const initials = name
+	.split(' ')
+	.map((part) => part[0])
+	.filter(Boolean)
+	.slice(0, 2)
+	.join('')
+	.toUpperCase();
+---
+
+<span
+	class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent font-heading text-sm font-semibold text-bg-dark shadow-lg shadow-accent/20"
+	aria-hidden="true"
+>
+	{initials}
+</span>

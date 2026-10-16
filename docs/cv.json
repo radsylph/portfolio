@@ -1,0 +1,138 @@
+{
+  "$schema": "",
+  "basics": {
+    "name": "Andres Alvarez",
+    "label": "FullStack Developer | Computer engineer",
+    "image": "",
+    "email": "andresalvarezsilva6@gmail.com",
+    "phone": "4146962526",
+    "url": "https://github.com/radsylph",
+    "summary": "Full-Stack Developer with 3 years of experience leading the end-to-end software development lifecycle for B2B and B2C products. Specialized in building scalable web and mobile applications by integrating intuitive frontends with robust backend architectures. Experienced in designing and consuming REST APIs, managing SQL/NoSQL databases, and applying Spec-Driven Development (SDD) combined with agentic workflows to delegate repetitive tasks and amplify development speed. ",
+    "location": {
+      "address": "Venezuela"
+    },
+    "profiles": [
+      {
+        "network": "Github",
+        "username": "radsylph"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Valbuena Brokers",
+      "location": "Texas, USA",
+      "description": "",
+      "position": "IT Consultant & Computer Engineer",
+      "url": "",
+      "startDate": "2026-05-01",
+      "endDate": "",
+      "summary": "Engineered and currently maintain a custom in-house CRM system from the ground up to manage complex brokerage operations, directly modernizing the company's core workflows and data management.\n",
+      "highlights": [
+        "\nDeveloped and deployed a suite of proprietary micro-tools and automated scripts to optimize daily business processes, significantly reducing manual overhead across the organization.\n",
+        "Architected and administered Windows Server infrastructure and Active Directory environments, establishing secure, VPN-free remote access and shared resource architectures for a distributed US workforce."
+      ]
+    },
+    {
+      "name": "Binwus",
+      "location": "Miamy, USA",
+      "description": "Software factory",
+      "position": "Full-Stack Developer",
+      "url": "",
+      "startDate": "2025-03-05",
+      "endDate": "2026-02-13",
+      "summary": "Led the end-to-end development of high-impact B2B/B2C applications using a modern tech stack and architected robust backend systems and responsive interfaces, ensuring scalable and future-proof solutions.",
+      "highlights": [
+        "Designed the backend and REST APIs for a real-time B2B content distribution engine featuring AI-driven moderation, synchronizing content across 600+ WordPress platforms and improving content delivery speed by 80%.",
+        "Implemented sub-second real-time synchronization (Socket.io, MQTT) for a sports club and tournament management system, boosting operational efficiency by 40%.",
+        "Collaborated on the backend of a Health-Tech app for cognitive rehabilitation, featuring a multi-role ecosystem (Doctor/Patient/Family) and a gamification engine."
+      ]
+    },
+    {
+      "name": "Tandem",
+      "location": "Venezuela",
+      "description": "Tech consultor",
+      "position": "Computer Engineer",
+      "url": "",
+      "startDate": "2023-05-01",
+      "endDate": "2025-03-02",
+      "summary": "Member of the R&D division, researching and implementing functional solutions utilizing the javascript & SAP ecosystem.",
+      "highlights": [
+        "Researched and implemented advanced features within the JavaScript ecosystem for internal tools and cloud enterprise applications.",
+        "Utilized SAP CAP (Cloud Application Programming Model) to deliver high-impact MVPs within tight deadlines.\n",
+        "Optimized development workflows by evaluating emerging technologies to enhance enterprise software solutions."
+      ]
+    }
+  ],
+  "volunteer": [],
+  "education": [
+    {
+      "institution": "University Rafael Urdaneta",
+      "url": "https://uru.edu/",
+      "area": "Computer engineer",
+      "studyType": "Bachelor",
+      "startDate": "2020-09-20",
+      "endDate": "2024-05-20",
+      "score": "17/20",
+      "courses": []
+    }
+  ],
+  "awards": [],
+  "certificates": [],
+  "publications": [],
+  "skills": [
+    {
+      "name": "FrontEnd",
+      "level": "",
+      "summary": "",
+      "keywords": [
+        "React, Angular, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Shadcn/UI, TanStack."
+      ]
+    },
+    {
+      "name": "BackEnd",
+      "level": "",
+      "summary": "",
+      "keywords": ["Node.js, NestJS, Fastify, Express, Python, Go."]
+    },
+    {
+      "name": "DataBase",
+      "level": "",
+      "keywords": ["PostgreSQL, MongoDB, Redis, SQL, Prisma ORM."]
+    },
+    {
+      "name": "DevOps",
+      "level": "",
+      "summary": "",
+      "keywords": [" AWS (S3), Docker, GitHub Actions (CI/CD), Vercel, Nx."]
+    },
+    {
+      "name": "QA",
+      "level": "",
+      "summary": "",
+      "keywords": ["Jest, Selenium."]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Spanish",
+      "fluency": "Native",
+      "summary": ""
+    },
+    {
+      "language": "English",
+      "fluency": "C2",
+      "summary": "https://cert.efset.org/en/5Xg1ML"
+    }
+  ],
+  "interests": [],
+  "references": [],
+  "projects": [],
+  "sideProjects": [],
+  "meta": {
+    "name": "",
+    "canonical": "",
+    "version": "",
+    "lastModified": "2026-09-07T14:30:24-04:00Z"
+  }
+}

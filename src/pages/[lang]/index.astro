@@ -1,0 +1,41 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Hero from "../../components/Hero.astro";
+import ExperienceTimeline from "../../components/ExperienceTimeline.astro";
+import Skills from "../../components/Skills.astro";
+import Education from "../../components/Education.astro";
+import Languages from "../../components/Languages.astro";
+import Contact from "../../components/Contact.astro";
+import Footer from "../../components/Footer.astro";
+import type { Locale } from "../../i18n/ui";
+import type { CV } from "../../types/cv";
+import cvEn from "../../data/cv.en.json";
+import cvEs from "../../data/cv.es.json";
+
+export function getStaticPaths() {
+    return [{ params: { lang: "en" } }, { params: { lang: "es" } }];
+}
+
+const locale =
+    (Astro.currentLocale as Locale) ?? (Astro.params.lang as Locale) ?? "en";
+const cvMap: Record<Locale, CV> = {
+    en: cvEn as CV,
+    es: cvEs as CV,
+};
+const cv = cvMap[locale];
+const title = `${cv.basics.name} — ${cv.basics.label}`;
+---
+
+<Layout locale={locale} title={title} description={cv.basics.summary}>
+    <Navbar name={cv.basics.name} />
+    <main id="main">
+        <Hero basics={cv.basics} />
+        <ExperienceTimeline work={cv.work} />
+        <Skills skills={cv.skills} />
+        <Education education={cv.education} />
+        <Languages languages={cv.languages} />
+        <Contact basics={cv.basics} />
+    </main>
+    <Footer name={cv.basics.name} />
+</Layout>
